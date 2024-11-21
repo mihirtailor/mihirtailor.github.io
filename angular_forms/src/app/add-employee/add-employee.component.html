@@ -33,15 +33,21 @@
         placeholder="Enter first name"
         name="first_name"
         minlength="3"
+        pattern="[a-zA-Z ]*"
         [(ngModel)]="empDetails.first_name"
         required
         #firstNameVal="ngModel"
       />
-      <div
-        *ngIf="firstNameVal.invalid && firstNameVal.touched"
-        class="text-danger"
-      >
-        Please provide valid first name
+      <div *ngIf="firstNameVal.touched">
+        <div *ngIf="firstNameVal.errors?.['required']" class="text-danger">
+          Please provide first name
+        </div>
+        <div *ngIf="firstNameVal.errors?.['pattern']" class="text-danger">
+          First name should contain only letters
+        </div>
+        <div *ngIf="firstNameVal.errors?.['minlength']" class="text-danger">
+          First name should be at least 3 characters
+        </div>
       </div>
     </div>
     <div class="mb-3 mt-3">
@@ -52,8 +58,16 @@
         id="last_name"
         placeholder="Enter last name"
         name="last_name"
+        pattern="[a-zA-Z ]*"
         [(ngModel)]="empDetails.last_name"
+        #lastNameVal="ngModel"
       />
+      <div
+        *ngIf="lastNameVal.touched && lastNameVal.errors?.['pattern']"
+        class="text-danger"
+      >
+        Last name should contain only letters
+      </div>
     </div>
     <div class="mb-3 mt-3">
       <label for="salary">Salary:</label>

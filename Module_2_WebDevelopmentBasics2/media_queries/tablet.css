@@ -1,0 +1,8 @@
+@media only screen and (min-width: 460px) {
+  .header,
+  .para {
+    background-color: #54ba6f;
+    color: darkorange;
+    font-size: 24px;
+  }
+}

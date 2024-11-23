@@ -1,0 +1,69 @@
+<h1>This is the title of Page: {{ title }}</h1>
+<p>{{ paragraph }}</p>
+
+<h4>This is an object example</h4>
+{{
+  "ID: " +
+    person.id +
+    " Name: " +
+    person.firstName +
+    " Last Name: " +
+    person.lastName
+}}
+
+<h4>This is an array example</h4>
+<ul>
+  <li *ngFor="let person of persons">
+    {{ person.id + " " + person.firstName + " " + person.lastName }}
+  </li>
+</ul>
+
+<h4>This is another array example</h4>
+<ul *ngIf="persons.length > 4">
+  <li *ngFor="let person of persons">
+    {{ person.id + " " + person.firstName + " " + person.lastName }}
+  </li>
+</ul>
+
+<h2>Two ways of displaying values from a variable in Angular</h2>
+<div>
+  <h3 style="color: {{ color_red }}">
+    This is an example of interpolation. Basically you try to display your
+    variable value from .ts file by using the variable name inside curly
+    brackets
+  </h3>
+  <br />
+  Title: <input type="text" value="{{ title }}" />
+  <button disabled="{{ isDisabled }}">Submit</button> <br />
+  <button (click)="userSaved()">User Saved Submit</button>
+</div>
+
+<div>
+  <h3 [style.color]="color_red">This is an example of data binding</h3>
+  <br />
+  Title: <input type="text" [value]="title" />
+  <button [disabled]="isDisabled">Submit</button>
+</div>
+
+<div>
+  <h3>NgModel Example using property binding</h3>
+  <input type="text" [ngModel]="title" />
+</div>
+
+<div>
+  <h3>NgModel Example using two way binding</h3>
+  <input type="text" [(ngModel)]="title" />
+</div>
+
+<app-home></app-home>
+
+<div>
+  <h2 [ngClass]="bg_color_class">Adding image using interpolation</h2>
+  <img src="{{ imageUrl }}" alt="Image not found" width="100" height="100" />
+</div>
+
+<div>
+  <h2 class="bg_color">Adding image using data binding</h2>
+  <img [src]="imageUrl" alt="Image not found" width="100" height="100" />
+</div>
+<router-outlet />

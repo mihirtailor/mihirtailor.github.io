@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function validateForm() {
+        var first_name = document.getElementById("first_name").value;
+        var last_name = document.getElementById("last_name").value;
+        document.getElementsByClassName("first_name_error")[0].style.display =
+          "none";
+        document.getElementsByClassName("last_name_error")[0].style.display =
+          "none";
+        if (first_name == "") {
+          document.getElementsByClassName("first_name_error")[0].style.display =
+            "inline";
+        }
+        if (last_name == "") {
+          document.getElementsByClassName("last_name_error")[0].style.display =
+            "inline";
+        }
+        if (first_name != "" && last_name != "") {
+          document.getElementById("my_form").submit();
+        }
+      }
+    </script>
+    <style>
+      .first_name_error,
+      .last_name_error {
+        color: red;
+        font-size: 12px;
+        font-style: italic;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="index.php">
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name" id="first_name" />
+      <br />
+      <span class="first_name_error"> First name is required</span><br />
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name" id="last_name" /> <br />
+      <span class="last_name_error"> last name is required</span><br />
+      <button id="my_form" type="button" onclick="validateForm()">
+        Submit
+      </button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function (event) {
+        $("#submit_form").click(function () {
+          var name = $("#first_name").val();
+          var password = $("#password").val();
+
+          if (name == "") {
+            $("#name_error").show();
+          }
+          if (password == "") {
+            $("#password_error").show();
+          }
+          if (name == "" || password == "") {
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form action="">
+      <div>
+        Name:<input type="text" name="first_name" id="first_name" />
+        <span id="name_error" style="color: red; display: none"
+          >First name is required
+        </span>
+      </div>
+      <div>
+        Password:<input type="password" name="password" id="password" />
+        <span id="password_error" style="color: red; display: none"
+          >password is required
+        </span>
+      </div>
+      <input id="submit_form" type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

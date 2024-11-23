@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // This is the JS way of doing it
+      // window.onload = function() {}
+
+      // This is the JQuery way of doing it
+      $(document).ready(function () {
+        $("h1").html("Change the heading to paragraph");
+        $("#para_1").text(
+          "This will just change the text of p tag id example."
+        );
+        $(".class_1").text(
+          "This will just change the text of p tag class example."
+        );
+        $(".class_1").css("color", "red");
+        $("p").css({ "font-size": "20px", "font-weight": "bold" });
+
+        $("div.class_3").css({
+          "background-color": "yellow",
+          border: "2px solid black",
+          padding: "10px",
+        });
+
+        $("div>h3").addClass("header");
+
+        $("h4").removeClass("header");
+
+        $("#hide_p").click(function () {
+          $("p").hide();
+        });
+
+        $("#show_p").click(function () {
+          $("p").show();
+        });
+
+        $("#show_hide").click(function () {
+          $("p").toggle();
+        });
+
+        // change the h1 to jqyer is very powerful when a button name change heading is clicked
+        $("#change_heading").click(function () {
+          $("h1").html("JQuery is very powerful");
+        });
+
+        $("img").attr(
+          "src",
+          "https://cdn.pixabay.com/photo/2023/11/03/12/22/toadstool-8362901_1280.jpg"
+        );
+      });
+    </script>
+    <style>
+      .header {
+        background-color: lightcyan;
+        color: blue;
+        padding: 10px;
+        font-family: "Courier New", Courier, monospace;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="hide_p">Hide Paragraph</button>
+    <button id="show_p">Show Paragraph</button>
+    <button id="change_heading">Change Heading</button>
+    <button id="show_hide">show/hide paragraph</button>
+    <h1>Heading 1</h1>
+    <p id="para_1">This is paragraph 1</p>
+    <p class="class_2">This is paragraph 2</p>
+    <p class="class_1">This is paragraph 3</p>
+    <div class="class_3">This is Div</div>
+    <div>
+      <h3>This is Heading H3</h3>
+      <p>This is Paragraph in Div</p>
+    </div>
+    <h4 class="header">This is Heading H4</h4>
+    <img src="" alt="mushroom" width="200" height="200" />
+  </body>
+</html>

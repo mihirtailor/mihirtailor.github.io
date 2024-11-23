@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web layout</title>
+    <style>
+      span.a {
+        display: block;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border: 1px solid black;
+        /* elemtns next to floating element will flow around it */
+        /* float: left; */
+      }
+      span.b {
+        display: inline;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border: 1px solid black;
+        position: relative;
+        top: 10px;
+      }
+
+      span.c {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        border: 1px solid black;
+      }
+
+      /* position */
+      /* absolue is relative to the nearest positioned parent */
+      h1 {
+        /* position: absolute; */
+        bottom: 0px;
+        left: 20px;
+      }
+
+      div.relative {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        background-color: lightblue;
+        border: 2px solid green;
+      }
+      div.absolute {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body style="position: relative">
+    <h1>Web Layout</h1>
+    <p>
+      Traditional flow of HTML elemtns are to be stacked on top of each other.
+      <span class="a">These types of elements</span> are knowon as
+      <strong>block</strong> elements
+    </p>
+
+    <p>
+      <strong>Inline</strong> elements are those that flow with the text and do
+      not start on a new line. A good example is the
+      <span class="b" style="color: blue"> span tag.</span> These elements do
+      not maintain their size and shape.
+    </p>
+
+    <p>
+      <strong> Inline-block</strong> elements are those that flow with the text
+      and also <span class="c">maintain their size and shape.</span>
+    </p>
+
+    <div class="relative">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste excepturi
+      ratione voluptas repellendus qui perferendis similique consectetur vero
+      obcaecati? Inventore nemo accusamus illum?
+      <div class="absolute">
+        Dolor architecto dolores sapiente explicabo, placeat quibusdam.
+      </div>
+    </div>
+  </body>
+</html>

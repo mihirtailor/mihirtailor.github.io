@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+body {
+  background-image: url("https://cdn.pixabay.com/photo/2022/03/03/15/40/coffee-7045578_1280.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  color: #333;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h1 {
+  color: #4a4a4a;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.form-label {
+  font-weight: 600;
+  color: #555;
+}
+
+.form-control,
+.form-select {
+  border: none;
+  border-bottom: 2px solid #d1d1d1;
+  border-radius: 0;
+  padding: 10px 5px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: none;
+  border-color: #9a8c98;
+}
+
+.form-check-label {
+  font-weight: 400;
+}
+
+.btn-primary {
+  background-color: #9a8c98;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #7d6f7a;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#orderSummary {
+  background-color: #f8f9fa;
+  border-left: 5px solid #9a8c98;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 5px;
+}
+
+#orderSummary h2 {
+  color: #4a4a4a;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}

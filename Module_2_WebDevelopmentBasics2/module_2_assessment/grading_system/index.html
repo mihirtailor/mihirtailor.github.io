@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grading/Attendance System</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid mb-4">
+      <div class="container">
+        <h1 class="display-4">Grading/Attendance System</h1>
+        <p class="lead">
+          Manage your students' grades and attendance with ease
+        </p>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">EduTrack</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#attendance">Attendance</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#grade">Grade</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Grading System -->
+    <div class="container mb-4" id="grade">
+      <h2 class="mb-3">Grading System</h2>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Student ID</th>
+              <th>Name</th>
+              <th>Course</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>001</td>
+              <td>John Doe</td>
+              <td>Math</td>
+              <td>A</td>
+              <td><span class="badge bg-success">Pass</span></td>
+            </tr>
+            <tr>
+              <td>002</td>
+              <td>Jane Smith</td>
+              <td>Science</td>
+              <td>B</td>
+              <td><span class="badge bg-success">Pass</span></td>
+            </tr>
+            <tr>
+              <td>003</td>
+              <td>Bob Johnson</td>
+              <td>History</td>
+              <td>C</td>
+              <td><span class="badge bg-success">Pass</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Attendance System -->
+    <div class="container mb-4" id="attendance">
+      <h2 class="mb-3">Attendance System</h2>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Student ID: 001</h5>
+              <p class="card-text">
+                Attendance: <span class="badge bg-success">Present</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Student ID: 002</h5>
+              <p class="card-text">
+                Attendance: <span class="badge bg-danger">Absent</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Student ID: 003</h5>
+              <p class="card-text">
+                Attendance: <span class="badge bg-success">Present</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">About Us</h5>
+            <p>
+              We are dedicated to providing the best grading and attendance
+              system for educational institutions.
+            </p>
+          </div>
+          <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <h5 class="text-uppercase">Contact Us</h5>
+            <p>
+              Email: info@gradingsystem.com<br />
+              Phone: +1 234 567 8900
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">© 2023 Grading/Attendance System</div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

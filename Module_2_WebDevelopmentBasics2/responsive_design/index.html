@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Design</title>
+    <style>
+      /* max-width override width property */
+      img {
+        width: 100%; /*  100% of the parent element width*/
+        max-width: 500px; /* 100% of the original image width*/
+        height: auto;
+      }
+      .ocean {
+        background-image: url("oceanImage.jpeg");
+        width: 100%;
+        height: 400px;
+        /* cover the entier width of parent */
+        /* background-size: contain; */
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        /* background-size: contain; */
+      }
+      p {
+        font-size: 5vw; /* 5% of the viewport width */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Responsive Design</h1>
+    <p>There are two approach to responsive design</p>
+    <p>
+      Mobile First Approach: In this approach, we design the website for mobile
+      devices first and then we design the website for desktop devices.
+    </p>
+    <p>
+      Desktop First Approach: In this approach, we design the website for
+      desktop devices first and then we design the website for mobile devices.
+    </p>
+    <img src="nature_facts_2000x.webp" alt="scenary image" />
+    <div class="ocean"></div>
+  </body>
+</html>

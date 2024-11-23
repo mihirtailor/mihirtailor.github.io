@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function validateForm() {
+        var first_name = document.forms["signinForm"]["first_name"].value;
+        var last_name = document.forms["signinForm"]["last_name"].value;
+
+        if (first_name == "") {
+          var elem = document.createElement("div");
+          elem.innerHTML =
+            "<span style='color:red;'>First name is required</span>";
+          document.getElementById("first_name").appendChild(elem);
+        }
+      }
+    </script>
+    <style>
+      .first_name_error,
+      .last_name_error {
+        color: red;
+        font-size: 12px;
+        font-style: italic;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="signinForm" action="index.php">
+      <label for="first_name">First Name:</label>
+      <input type="text" name="first_name" id="first_name" />
+      <br />
+
+      <label for="last_name">Last Name:</label>
+      <input type="text" name="last_name" id="last_name" /> <br />
+
+      <button id="my_form" type="button" onclick="validateForm()">
+        Submit
+      </button>
+    </form>
+  </body>
+</html>

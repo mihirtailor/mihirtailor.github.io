@@ -1,0 +1,8 @@
+@media only screen and (max-width: 460px) {
+  .header,
+  .para {
+    background-color: lightpink;
+    color: darkorange;
+    font-size: 24px;
+  }
+}

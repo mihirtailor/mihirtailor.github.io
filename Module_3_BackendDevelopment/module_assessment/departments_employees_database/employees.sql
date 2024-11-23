@@ -1,0 +1,26 @@
+use departments_employees_database;
+
+DROP TABLE employees;
+
+CREATE TABLE employees (
+    ID INT PRIMARY KEY,
+    NAME VARCHAR(255),
+    DEPARTMENT_ID INT,
+    SALARY DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (DEPARTMENT_ID) REFERENCES departments(ID) ON DELETE CASCADE
+);
+
+SELECT * FROM departments_employees_database.employees;
+
+INSERT INTO employees (ID, NAME, DEPARTMENT_ID, SALARY) VALUES (1, 'John Smith', 1, 75000.00);
+INSERT INTO employees (ID, NAME, DEPARTMENT_ID, SALARY) VALUES (2, 'Sarah Johnson', 1, 65000.00);
+INSERT INTO employees (ID, NAME, DEPARTMENT_ID, SALARY) VALUES (3, 'Michael Brown', 3, 85000.00);
+
+ALTER TABLE employees 
+ADD COLUMN salary DECIMAL(10, 2) NOT NULL; 
+
+UPDATE employees SET SALARY = 75000.00 WHERE ID = 1;
+UPDATE employees SET SALARY = 65000.00 WHERE ID = 2;
+UPDATE employees SET SALARY = 85000.00 WHERE ID = 3;
+
+UPDATE employees SET DEPARTMENT_ID = 1 WHERE ID = 2;

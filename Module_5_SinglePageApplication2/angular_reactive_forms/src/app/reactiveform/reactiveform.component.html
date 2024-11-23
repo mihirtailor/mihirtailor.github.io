@@ -1,0 +1,145 @@
+<div class="container">
+  <h1>Add Employee</h1>
+  <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Enter email"
+        name="email"
+        formControlName="email"
+        [ngClass]="{
+          'is-invalid':
+            employeeForm.get('email')?.invalid &&
+            employeeForm.get('email')?.touched
+        }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="employeeForm.get('email')?.errors?.['required'] && employeeForm.get('email')?.touched"
+      >
+        Email is required
+      </div>
+      <div
+        class="invalid-feedback"
+        *ngIf="employeeForm.get('email')?.errors?.['email'] && employeeForm.get('email')?.touched"
+      >
+        Please enter a valid email address
+      </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        class="form-control"
+        placeholder="Enter password"
+        name="password"
+        formControlName="password"
+        [ngClass]="{
+          'is-invalid':
+            employeeForm.get('password')?.invalid &&
+            employeeForm.get('password')?.touched
+        }"
+      />
+      <div *ngIf="employeeForm.get('password')?.errors?.['weakPassword']">
+        Password must contain:
+        <ul>
+          <li
+            *ngIf="!employeeForm.get('password')?.errors?.['weakPassword'].hasUpperCase"
+          >
+            One uppercase letter
+          </li>
+          <li
+            *ngIf="!employeeForm.get('password')?.errors?.['weakPassword'].hasLowerCase"
+          >
+            One lowercase letter
+          </li>
+          <li
+            *ngIf="!employeeForm.get('password')?.errors?.['weakPassword'].hasNumeric"
+          >
+            One number
+          </li>
+          <li
+            *ngIf="!employeeForm.get('password')?.errors?.['weakPassword'].hasSpecialChar"
+          >
+            One special character
+          </li>
+          <li
+            *ngIf="!employeeForm.get('password')?.errors?.['weakPassword'].minLength"
+          >
+            Minimum 8 characters
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="first_name">First Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="first_name"
+        placeholder="Enter first name"
+        name="first_name"
+        formControlName="first_name"
+        [ngClass]="{
+          'is-invalid':
+            employeeForm.get('first_name')?.invalid &&
+            employeeForm.get('first_name')?.touched
+        }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="employeeForm.get('first_name')?.errors?.['required'] && employeeForm.get('first_name')?.touched"
+      >
+        First name is required
+      </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="last_name">Last Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="last_name"
+        placeholder="Enter last name"
+        name="last_name"
+        formControlName="last_name"
+      />
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="salary">Salary:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="salary"
+        placeholder="Enter salary"
+        name="salary"
+        formControlName="salary"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label for="department">Department:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="department"
+        placeholder="Enter department"
+        name="department"
+        formControlName="department"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="employeeForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

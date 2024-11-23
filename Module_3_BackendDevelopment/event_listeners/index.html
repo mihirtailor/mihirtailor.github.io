@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Events</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>JS Events</h1>
+    <p>An event is assigend an event handler(a function).</p>
+    <button onClick="alert('click event triggered')">Click Me</button>
+    <button ondblclick="alert('double click event triggered')">
+      Double Click Me
+    </button>
+    <button onmouseover="alert('Mouse over event triggered')">
+      Mouse Over
+    </button>
+
+    <!-- We can add event handler to elements using javascript -->
+    <button id="special">Special Click</button>
+
+    <input type="text" id="username" placeholder="type something" />
+
+    <script>
+      //   const special = document.getElementById("special");
+      //   // add event listener to the element
+      //   special.addEventListener("click", function () {
+      //     alert("special button clicked");
+      //   });
+
+      //JQuery equivalent
+      $(document).ready(function () {
+        $("#special").on("click", function () {
+          alert("special button clicked");
+          // update the text of the button
+          // this referes to the element that triggered the event
+          $(this).text("Clicked");
+        });
+      });
+
+      var username = document.getElementById("username");
+      username.addEventListener("keypress", function (event) {
+        console.log(event);
+        console.log("Event Type: " + event.type);
+        console.log("Key Pressed: " + event.key);
+        console.log("Target Element: " + event.target);
+      });
+    </script>
+  </body>
+</html>

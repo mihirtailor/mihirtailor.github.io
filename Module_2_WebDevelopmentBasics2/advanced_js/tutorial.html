@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced JS</title>
+    <style>
+      .add_bg {
+        background-color: lightcoral;
+        color: darkblue;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Heading 1</h1>
+    <h1 class="my_class">Heading 2</h1>
+    <h1 id="my_id">Heading 3</h1>
+    <h1 id="head">Heading 4</h1>
+    <p class="my_class">paragraph</p>
+    <h1 class="my_class">This is H2 Tag</h1>
+    <button onclick="toggleImage()">Change Image</button>
+    <!-- <button onclick="changeImgBack()">Change Image Back</button> -->
+    <div>
+      <img
+        id="my_img"
+        src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
+        alt="natural"
+      />
+    </div>
+  </body>
+  <script>
+    // selected element based on the id - id is unique
+    document.getElementById("my_id").innerHTML = "Hello World changes from JS";
+    // selected element based on the class name - class name can be used more than once so it displays as array
+    document.getElementsByClassName("my_class").item(0).innerHTML =
+      "Hello World changes from JS";
+    document.getElementsByClassName("my_class").item(1).innerHTML =
+      "Hello World changes from JS";
+    var classElem = document.getElementsByClassName("my_class");
+    classElem[2].innerHTML = "<p>Hello World changes from JS</p>";
+
+    // selecting elements based on the tag name
+    var tagElem = (document
+      .getElementsByTagName("h1")
+      .item(0).style.backgroundColor = "lightblue");
+
+    document.getElementById("my_id").style.backgroundColor = "yellow";
+
+    document.getElementById("head").className = "add_bg";
+
+    function changeImg(image_url) {
+      document.getElementById("my_img").src = image_url;
+      ("https://cdn.pixabay.com/photo/2024/05/29/16/49/lizard-8796682_1280.jpg");
+    }
+
+    function toggleImage() {
+      var img = document.getElementById("my_img");
+      if (
+        img.src.match(
+          "https://cdn.pixabay.com/photo/2024/05/29/16/49/lizard-8796682_1280.jpg"
+        )
+      ) {
+        img.src =
+          "https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg";
+      } else {
+        img.src =
+          "https://cdn.pixabay.com/photo/2024/05/29/16/49/lizard-8796682_1280.jpg";
+      }
+    }
+  </script>
+</html>

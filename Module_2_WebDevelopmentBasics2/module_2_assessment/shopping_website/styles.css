@@ -1,0 +1,46 @@
+/* Custom styles for the shopping website */
+
+body {
+  font-family: "Arial", sans-serif;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #007bff !important;
+}
+
+.p-5.mb-4.bg-light.rounded-3 {
+  background-image: linear-gradient(to right, #4a90e2, #7cb9e8) !important;
+  color: white;
+}
+
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+footer {
+  background-color: #343a40;
+}
+
+footer h5 {
+  color: #007bff;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}

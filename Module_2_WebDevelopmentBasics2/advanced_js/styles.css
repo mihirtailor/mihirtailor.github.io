@@ -1,0 +1,22 @@
+#panel_1 {
+  padding: 35px;
+  width: 50px;
+  position: absolute;
+  background-color: lightblue;
+}
+
+#panel_2 {
+  padding: 35px;
+  width: 50px;
+  position: absolute;
+  background-color: blue;
+  left: 85px;
+}
+
+#panel_3 {
+  padding: 35px;
+  width: 50px;
+  position: absolute;
+  background-color: red;
+  left: 170px;
+}

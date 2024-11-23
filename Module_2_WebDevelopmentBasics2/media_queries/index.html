@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Queries</title>
+    <!-- Internal Style Sheet -->
+    <style type="text/css">
+      .card {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: aliceblue;
+        border-radius: 5px;
+      }
+
+      /* media queries syntax
+     Syntax: @media screen and (max-width: 600px) { css }
+     medai type: all, screen, print, speech 
+     media features: width, height, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio, color, color-index, resolution, scan, grid, update, orientation, aspect-ratio,
+     logical opeartions: and, not, only
+      */
+      @media screen and (max-width: 450px) {
+        .card {
+          background-color: violet;
+          color: aliceblue;
+        }
+      }
+
+      @media print {
+        .card {
+          background-color: white;
+          color: black;
+        }
+      }
+
+      /* NOT and only are written before the media type */
+      @media only screen and (min-width: 768px) {
+        .card {
+          background-color: brown;
+          color: yellow;
+        }
+      }
+
+      @media not screen and (max-width: 450px) {
+        .card {
+          background-color: lightgray;
+          color: black;
+        }
+      }
+
+      /* Orientation */
+      @media screen and (orientation: landscape) {
+        body {
+          background-color: lightgreen;
+        }
+      }
+
+      @media screen and (orientation: portrait) {
+        body {
+          background-color: lightblue;
+        }
+      }
+
+      /* Aspect Ratio */
+      @media screen and (aspect-ratio: 1/2) {
+        body {
+          background-color: lightcoral;
+        }
+      }
+
+      /* height */
+      @media screen and (min-height: 400px) {
+        body {
+          background-color: navajowhite;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Media Queries</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, odio
+        quidem at, dolor ratione quod iste quo eligendi explicabo quis quisquam
+        vitae voluptates veniam id magni dolore molestiae eveniet doloribus!
+      </p>
+    </div>
+  </body>
+</html>

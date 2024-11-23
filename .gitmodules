@@ -1,0 +1,6 @@
+[submodule "Module_1_WebDevelopmentBasics1"]
+	path = Module_1_WebDevelopmentBasics1
+	url = https://github.com/mihirtailor/Module_1_WebDevelopmentBasics1.git
+[submodule "Module_2_WebDevelopmentBasics2"]
+	path = Module_2_WebDevelopmentBasics2
+	url = https://github.com/mihirtailor/Module_2_WebDevelopmentBasics2.git

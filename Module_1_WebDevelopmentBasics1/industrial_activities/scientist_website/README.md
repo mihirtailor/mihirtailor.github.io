@@ -6,7 +6,7 @@ This is a responsive single-page website showcasing Neil deGrasse Tyson's profil
 
 You can view the live version of the Neil deGrasse Tyson website here:
 
-[Neil deGrasse Tyson Website Preview](https://mihirtailor.github.io/bootcamp/Module_1_WebDevelopmentBasics1/industrial_activities/scientist_website/)
+[Neil deGrasse Tyson Website Preview](https://mihirtailor.github.io/Module_1_WebDevelopmentBasics1/industrial_activities/scientist_website/)
 
 ## Technologies Used
 

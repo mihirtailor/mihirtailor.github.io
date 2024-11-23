@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Page</title>
+  </head>
+  <body>
+    <!-- action is where the form data will be sent -->
+    <form
+      action="/test.php"
+      name="sign_in_form"
+      id="sign_in_form_id"
+      method="POST"
+    >
+      <div>
+        Email
+        <input type="email" name="email" id="email_id" required />
+      </div>
+      <div>
+        First Name
+        <input type="text" name="first_name" />
+      </div>
+      <div>
+        Age
+        <input type="number" name="age" />
+      </div>
+      <div>
+        Password
+        <input type="password" name="password" />
+      </div>
+      <div>
+        Gender
+        <input type="radio" name="gender" value="male" /> Male
+        <input type="radio" name="gender" value="female" /> Female
+      </div>
+
+      <div>
+        Hobbies:
+        <input type="checkbox" name="hobbie" value="soccer" /> Soccer
+        <input type="checkbox" name="hobbie" value="cricket" /> Cricket
+        <input type="checkbox" name="hobbie" value="hockey" /> Hockey
+      </div>
+
+      <select name="cars" id="">
+        Car Brand
+        <option value="bmw">BMW</option>
+        <option value="audi">Audi</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="toyota">Toyota</option>
+      </select>
+
+      <div>
+        <input type="submit" />
+        <button>Another Button</button>
+      </div>
+    </form>
+  </body>
+</html>

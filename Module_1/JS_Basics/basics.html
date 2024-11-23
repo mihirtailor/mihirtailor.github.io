@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javascript</title>
+    <script>
+      x = 3;
+      console.log("The value of x is " + x);
+      x = x + 1;
+      console.log("The value of x after x = x +1 " + x);
+      x += 1;
+      console.log("The value of x after x += 1 " + x);
+
+      x++;
+      console.log("The value of x after x++ " + x);
+
+      for (let i = 0; i < 10; ++i) {
+        console.log("The value of i is " + i);
+      }
+
+      var sum = 0;
+      for (let i = 0; i <= 5; ++i) {
+        sum = sum + i;
+      }
+      console.log("Sum: " + sum);
+
+      var students = new Array("Mihir", "Raj", "Rajesh", "Rajeshwari");
+      for (let i = 0; i < students.length; ++i) {
+        helloStudents(students[i]);
+      }
+
+      function showName() {
+        var firstName = document.getElementById("first_name").value;
+        console.log("The value of firstName is " + firstName);
+        var hours = document.getElementById("hours").value;
+        console.log("The value of hours is " + hours);
+        var wageRate = document.getElementById("wage_rate").value;
+        console.log("The value of wageRate is " + wageRate);
+      }
+
+      function helloStudents(name) {
+        console.log("Hello " + name);
+      }
+      helloStudents("Mihir");
+    </script>
+  </head>
+  <body>
+    <!-- Add a input field to display number of hours entered in the input inside the showName() function
+    Add a input field to enter your current wage rate and display it inside the showName() function -->
+    Name <input type="text" name="first_name" id="first_name" /> <br />
+    Number of Hours <input type="number" name="hours" id="hours" /> <br />
+    Hourly Rate <input type="number" name="rate" id="wage_rate" />
+    <button onclick="showName()">Show Name</button>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function</title>
+    <script>
+      var x = 50;
+      let y = 60;
+      const z = 70;
+      function hello() {
+        x = 10;
+        y = 10;
+        console.log(
+          " inside function the value of x is " +
+            x +
+            " the value of y is " +
+            y +
+            " the value of z is " +
+            z
+        );
+      }
+
+      // let scope is limited only in the curly braces
+      if (true) {
+        var x = 100;
+        let y = 200;
+        console.log(
+          " inside if block the value of x is " +
+            x +
+            " the value of y is " +
+            y +
+            " the value of z is " +
+            z
+        );
+      }
+
+      console.log(
+        "out side console the value of x is " +
+          x +
+          " the value of y is " +
+          y +
+          " the value of z is " +
+          z
+      );
+
+      function helloStudent(name, age) {
+        console.log("Hello " + name + " you are " + age + " years old");
+      }
+      hello();
+      helloStudent("John", 25);
+      helloStudent("Tom", 30);
+      helloStudent("Dick", 33);
+
+      function sumNumber() {
+        let sum = 0;
+        for (let i = 0; i <= 100; i++) {
+          sum += i;
+        }
+        console.log("Sum of numbers from 1 to 100: " + sum);
+      }
+    </script>
+  </head>
+  <body>
+    <button type="submit" onclick="sumNumber()">calculate the sum</button>
+  </body>
+</html>

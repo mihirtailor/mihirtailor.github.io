@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+    <!-- external style sheet -->
+    <!-- external style sheet has lower specificity than internal style sheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- internal style sheet - applies to current page only -->
+    <!-- internal style sheet has higher specificity than external style sheet -->
+    <style>
+      input {
+        background-color: azure;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <!-- inline style - directly apply to css elements -->
+    <!-- inline style has higher specificity than internal style sheet -->
+    <!-- specifity score - 1000 -->
+    <div class="center">
+      <h1 style="color: blue">Forms and Input Elements</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam aut
+        earum qui quasi cumque, tenetur debitis assumenda tempore perspiciatis
+        culpa voluptatem molestias? Cupiditate fugiat magnam quis voluptatum
+        velit aliquid nulla.
+      </p>
+    </div>
+
+    <div class="dog">
+      <h3>This is a dog picture</h3>
+      <!-- <img
+        class="dog"
+        src="https://cdn.pixabay.com/photo/2020/05/03/13/09/puppy-5124947_1280.jpg"
+        alt="puppy image"
+      /> -->
+    </div>
+
+    <form action="/process_form.php">
+      <!-- Input element can be used to collect informatoion from users -->
+      <!-- we can use for and id attributes together for input element -->
+      <!-- type text used for collection text data -->
+      <label for="FirstName">First Name:</label>
+      <input
+        id="FirstName"
+        type="text"
+        name="FirstName"
+        placeholder="type firstname"
+        required
+      />
+      <br />
+      <!-- type email -->
+      <label for="email">Email Address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="@gmail.com"
+        required
+      />
+      <br />
+
+      <!-- type number -->
+
+      <label for="Age">Age</label>
+      <input
+        type="number"
+        id="Age"
+        placeholder="provide your age"
+        min="18"
+        max="100"
+      />
+      <br />
+
+      <!-- type radio -->
+      <!-- used when we have a fixed set of options -->
+      <!-- type radio share name value so only 1 seelcted at a time -->
+      <h3 class="e1 p1" for="shirt_size">Shirt Size</h3>
+      <input
+        type="radio"
+        name="shirt_size"
+        id="shirt_size"
+        value="small"
+        checked
+        required
+      />Small<br />
+      <input
+        type="radio"
+        name="shirt_size"
+        id="shirt_size"
+        value="medium"
+        required
+      />Medium <br />
+      <input
+        type="radio"
+        name="shirt_size"
+        id="shirt_size"
+        value="large"
+        required
+      />Large
+      <br />
+
+      <!-- dropdown list using select element -->
+      <label for="brand">Brand</label>
+      <select name="brnad" id="brand" required>
+        <option value="nike">Nike</option>
+        <option value="adidas" selected>Adidas</option>
+        <option value="puma">Puma</option>
+        <option value="hoka">Hoka</option>
+        <option value="reebok">Reebok</option>
+      </select>
+
+      <br />
+      <!-- type checkbox -  selecign multiple values  -->
+      <h3 class="e1 p1">Colors</h3>
+      <input type="checkbox" name="colors" id="colors" value="red" />Red
+      <input type="checkbox" name="colors" id="colors" value="blue" />Blue
+      <input type="checkbox" name="colors" id="colors" value="orange" />Orange
+      <input type="checkbox" name="colors" id="colors" value="black" />Black
+
+      <br />
+      <!-- submitting form    -->
+      <input type="submit" value="Order Shirt" />
+    </form>
+  </body>
+</html>

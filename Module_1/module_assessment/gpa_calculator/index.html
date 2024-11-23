@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPA Calculator</title>
+  </head>
+  <body>
+    <h1>GPA Calculator</h1>
+    <input
+      type="text"
+      id="gradesInput"
+      placeholder="Enter grades (e.g., A,B,C)"
+    />
+    <button id="calculateButton">Calculate GPA</button>
+    <p id="result"></p>
+
+    <script>
+      function calculateGPA(grades) {
+        const gradeTable = {
+          A: 100,
+          B: 80,
+          C: 70,
+        };
+
+        const numericGrades = grades.map(
+          (grade) => gradeTable[grade.toUpperCase()] || 0
+        );
+        const averageNumericGrade =
+          numericGrades.reduce((sum, grade) => sum + grade, 0) /
+          numericGrades.length;
+
+        let alphabeticGPA = "F";
+        if (averageNumericGrade >= 90) alphabeticGPA = "A";
+        else if (averageNumericGrade >= 80) alphabeticGPA = "B";
+        else if (averageNumericGrade >= 70) alphabeticGPA = "C";
+
+        return `Your GPA is ${alphabeticGPA}`;
+      }
+
+      document
+        .getElementById("calculateButton")
+        .addEventListener("click", function () {
+          const gradesInput = document.getElementById("gradesInput").value;
+          const grades = gradesInput.split(",").map((grade) => grade.trim());
+          const result = calculateGPA(grades);
+          document.getElementById("result").textContent = result;
+        });
+    </script>
+  </body>
+</html>

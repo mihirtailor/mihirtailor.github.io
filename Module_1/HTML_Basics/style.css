@@ -1,0 +1,30 @@
+td {
+  background-color: lightgreen;
+  color: blue;
+  border: 1px solid black;
+}
+h1,
+p {
+  color: blue;
+  background-color: lightblue;
+}
+.background_color {
+  background-color: pink;
+  color: black;
+}
+.light_background_color {
+  background-color: lightgray;
+  color: black;
+  font-size: 24px;
+}
+.text_center {
+  text-align: center;
+}
+.font_style {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#example {
+  text-align: right;
+  background-color: burlywood;
+  font-size: 30px;
+}

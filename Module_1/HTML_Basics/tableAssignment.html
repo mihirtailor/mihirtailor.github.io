@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Table Assigment</title>
+    <!-- exteernal style sheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <style>
+      table {
+        margin: 60px;
+      }
+      td {
+        background-color: skyblue;
+        color: blue;
+      }
+      td,
+      th,
+      table {
+        border: 2px solid black;
+      }
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+    <table>
+      <thead>
+        <tr style="background-color: orangered; color: purple">
+          <!-- Instyle style example -->
+          <th>ID</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>PhoneNumber</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: skyblue">
+          <td>1</td>
+          <td>John</td>
+          <td>Doe</td>
+          <td>john.doe@example.com</td>
+          <td>30</td>
+          <td>555-1234</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jane</td>
+          <td>Smith</td>
+          <td>jane.smith@example.com</td>
+          <td>28</td>
+          <td>555-5678</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Mike</td>
+          <td>Johnson</td>
+          <td>mike.johnson@example.com</td>
+          <td>35</td>
+          <td>555-9876</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Emily</td>
+          <td>Brown</td>
+          <td>emily.brown@example.com</td>
+          <td>25</td>
+          <td>555-4321</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>David</td>
+          <td>Wilson</td>
+          <td>david.wilson@example.com</td>
+          <td>40</td>
+          <td>555-8765</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Sarah</td>
+          <td>Taylor</td>
+          <td>sarah.taylor@example.com</td>
+          <td>32</td>
+          <td>555-2468</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div>
+      Colspan Example
+      <table>
+        <tr>
+          <th>ID</th>
+          <th colspan="2">Name</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>John</td>
+          <td>Doe</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Dave</td>
+          <td>Mill</td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      Rowspan Example
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td rowspan="2">John</td>
+          <td rowspan="2">Doe</td>
+        </tr>
+        <tr>
+          <td>2</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

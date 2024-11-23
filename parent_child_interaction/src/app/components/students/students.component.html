@@ -1,1 +1,7 @@
-<undergrads [undergradsList]="undergradsStudents"> </undergrads>
+<undergrads
+  [undergradsList]="undergradsStudents"
+  (deleteEvent)="deleteStudent($event)"
+>
+</undergrads>
+
+<h2>{{ text }}</h2>

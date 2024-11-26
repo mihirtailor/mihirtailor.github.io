@@ -25,7 +25,7 @@ export function weakPasswordValidator(): ValidatorFn {
             hasNumeric,
             hasSpecialChar,
             minLength,
-            requiredLength: 8,
+            //requiredLength: 8,
           },
         }
       : null;

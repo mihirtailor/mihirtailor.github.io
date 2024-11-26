@@ -17,6 +17,10 @@ export const routes: Routes = [
     component: EmployeesComponent,
   },
   {
+    path: 'employees/:id',
+    component: EmployeesComponent,
+  },
+  {
     path: '**',
     redirectTo: 'employees',
   },

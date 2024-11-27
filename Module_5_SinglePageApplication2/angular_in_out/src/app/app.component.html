@@ -1,0 +1,11 @@
+<!-- [variable_name_in_child] = "variable name in parent" -->
+
+<app-students
+  [title_from_parent]="title"
+  [student_from_parent]="student"
+  (value_from_child)="valFromChild($event)"
+></app-students>
+
+<h3>Value received from child: {{ childValue }}</h3>
+
+<router-outlet />

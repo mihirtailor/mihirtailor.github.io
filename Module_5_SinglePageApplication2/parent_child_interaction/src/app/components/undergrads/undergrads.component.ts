@@ -7,7 +7,6 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  SimpleChange,
   SimpleChanges,
 } from '@angular/core';
 
@@ -16,7 +15,9 @@ import {
   templateUrl: './undergrads.component.html',
   styleUrl: './undergrads.component.css',
 })
-export class UndergradsComponent implements OnChanges, OnInit, DoCheck {
+export class UndergradsComponent
+  implements OnChanges, OnInit, DoCheck, OnDestroy
+{
   // accepts an arry of students using @Input() decorator
   @Input() undergradsList: any;
   @Input() public textValue: any; // value of text input

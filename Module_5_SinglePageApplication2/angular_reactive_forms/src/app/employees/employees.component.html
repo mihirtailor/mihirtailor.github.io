@@ -1,23 +1,41 @@
 <div class="container">
-  <h2>Employee List</h2>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Email</th>
-        <th>Salary</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let employee of employees">
-        <td>{{ employee.id }}</td>
-        <td>{{ employee.name }}</td>
-        <td>{{ employee.age }}</td>
-        <td>{{ employee.email }}</td>
-        <td>{{ employee.salary }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <header class="mb-4">
+    <h2 class="text-primary">Employee List</h2>
+  </header>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Details</th>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Email</th>
+          <th scope="col">Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>
+            <a class="btn btn-link" [routerLink]="['/employees', employee.id]">
+              View Details
+            </a>
+          </td>
+          <td>{{ employee.id }}</td>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.age }}</td>
+          <td>{{ employee.email }}</td>
+          <td>{{ employee.salary | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="!employees?.length" class="alert alert-info">
+    No employees found.
+  </div>
+  <div *ngIf="details" class="mt-4 alert alert-info">
+    <pre>{{ details }}</pre>
+  </div>
 </div>

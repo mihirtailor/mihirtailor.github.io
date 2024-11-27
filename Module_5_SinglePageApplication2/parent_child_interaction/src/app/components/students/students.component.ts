@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Student } from '../../interfaces/student';
+import { SchoolService } from '../../services/school.service';
 
 @Component({
   selector: 'students',
@@ -6,15 +8,19 @@ import { Component } from '@angular/core';
   styleUrl: './students.component.css',
 })
 export class StudentsComponent {
-  students = [
-    { id: 1, name: 'John Doe', level: 'undergrad' },
-    { id: 2, name: 'Jane Smith', level: 'postgrad' },
-    { id: 3, name: 'Bob Johnson', level: 'undergrad' },
-    { id: 4, name: 'Mary Taylor', level: 'undergrad' },
-    { id: 5, name: 'Mark Johnson', level: 'undergrad' },
-  ];
+  students: Student[] = [];
 
   undergradsStudents = this.getUndergrads();
+
+  constructor(private schoolService: SchoolService) {}
+
+  // use ngOnInit hook to call getStudents method from SchoolService
+  ngOnInit() {
+    this.schoolService.getStudents().subscribe((response) => {
+      this.students = response;
+      this.undergradsStudents = this.getUndergrads();
+    });
+  }
 
   // returns array of undergrad students
   getUndergrads() {

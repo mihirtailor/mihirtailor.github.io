@@ -1,13 +1,9 @@
 import { Routes } from '@angular/router';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'employees',
-    pathMatch: 'full',
-  },
   {
     path: 'add_employee',
     component: ReactiveformComponent,
@@ -21,7 +17,12 @@ export const routes: Routes = [
     component: EmployeesComponent,
   },
   {
-    path: '**',
+    path: '',
     redirectTo: 'employees',
+    pathMatch: 'full',
+  },
+  {
+    path: '**',
+    component: PagenotfoundComponent,
   },
 ];

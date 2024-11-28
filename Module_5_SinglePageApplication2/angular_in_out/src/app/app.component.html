@@ -1,5 +1,8 @@
 <!-- [variable_name_in_child] = "variable name in parent" -->
 
+<button (click)="changeTitle()">Change Title</button> <br />
+
+<input type="text" [(ngModel)]="title" />
 <app-students
   [title_from_parent]="title"
   [student_from_parent]="student"

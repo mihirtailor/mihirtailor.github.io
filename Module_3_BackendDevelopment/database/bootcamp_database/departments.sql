@@ -52,6 +52,5 @@ drop column age;
 -- show the alter command to add a new column
 -- show how to add a foreign key
 -- show inner join and left join
---
-
+-- just checking
 

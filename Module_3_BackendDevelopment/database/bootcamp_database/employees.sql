@@ -6,12 +6,14 @@ use bootcamp_database;
 -- to create a database
 CREATE database bootcamp_database;
 
+DROP TABLE IF EXISTS employees;
 -- to create a table
-CREATE TABLE bootcamp_database.employees(
-	employee_id INT NOT NULL,
-    first_name varchar(255) NOT NULL,
-    last_name varchar(255) NULL,
-    status tinyint(1) DEFAULT 1
+CREATE TABLE employees (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Age INT,
+    Email VARCHAR(255) UNIQUE,
+    Salary DECIMAL(10,2)
 );
 -- to select specific columns
 select employee_id, first_name from bootcamp_database.employees;

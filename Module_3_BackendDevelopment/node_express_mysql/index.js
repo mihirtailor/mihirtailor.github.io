@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const connection = require("./connection");
-const port = 3000;
+const port = 3006;
 app.use(express.json());
 
 // middleware

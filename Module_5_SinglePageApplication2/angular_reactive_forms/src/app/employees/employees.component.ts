@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'app-employees',
@@ -11,7 +12,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 })
 export class EmployeesComponent {
   router = inject(ActivatedRoute);
-
+  employee_data: EmployeeService = inject(EmployeeService);
   details: string = '';
 
   employees = [

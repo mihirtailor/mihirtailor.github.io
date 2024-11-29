@@ -15,6 +15,14 @@ CREATE TABLE employees (
     Email VARCHAR(255) UNIQUE,
     Salary DECIMAL(10,2)
 );
+
+INSERT INTO employees (Name, Age, Email, Salary) VALUES
+('John Smith', 32, 'john.smith@email.com', 75000.00),
+('Sarah Johnson', 28, 'sarah.j@email.com', 65000.50),
+('Michael Brown', 41, 'michael.b@email.com', 85000.00),
+('Emma Wilson', 35, 'emma.w@email.com', 70000.75),
+('James Davis', 29, 'james.d@email.com', 62000.25);
+
 -- to select specific columns
 select employee_id, first_name from bootcamp_database.employees;
 

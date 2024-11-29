@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 
 export const routes: Routes = [
   {
@@ -14,7 +15,7 @@ export const routes: Routes = [
   },
   {
     path: 'employees/:id',
-    component: EmployeesComponent,
+    component: EmployeeDetailComponent,
   },
   {
     path: '',

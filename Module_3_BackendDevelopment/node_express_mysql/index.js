@@ -1,8 +1,10 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const connection = require("./connection");
 const port = 3006;
 app.use(express.json());
+app.use(cors());
 
 // middleware
 app.use((req, res, next) => {
@@ -42,10 +44,9 @@ app.get("/employees/:id", async (req, res) => {
   try {
     const [data, fields] = await connection
       .promise()
-      .query(
-        "select * from bootcamp_database.employees where employee_id = ?",
-        [req.params.id]
-      );
+      .query("select * from bootcamp_database.employees where ID = ?", [
+        req.params.id,
+      ]);
     if (data.length > 0) {
       return res.json(data);
     } else {
@@ -61,7 +62,7 @@ app.delete("/employees/delete/:id", async (req, res) => {
   try {
     const [data, fields] = await connection
       .promise()
-      .query("delete from bootcamp_database.employees where employee_id = ?", [
+      .query("delete from bootcamp_database.employees where ID = ?", [
         req.params.id,
       ]);
     if (data.affectedRows > 0) {
@@ -79,27 +80,31 @@ app.delete("/employees/delete/:id", async (req, res) => {
 // 2. delete department based on id
 
 // post employee
-app.post("/employees/add", async (req, res) => {
+app.post("/employees", async (req, res) => {
   try {
+    if (
+      !req.body.Name ||
+      !req.body.Age ||
+      !req.body.Email ||
+      !req.body.Salary
+    ) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
     const [data, fields] = await connection
       .promise()
       .query(
-        "insert into bootcamp_database.employees (first_name, last_name, status, salary, department_id) values (?, ?, ?, ?, ?)",
-        [
-          req.body.first_name,
-          req.body.last_name,
-          req.body.status,
-          req.body.salary,
-          req.body.department_id,
-        ]
+        "insert into bootcamp_database.employees (Name, Age, Email, Salary) values (?, ?, ?, ?)",
+        [req.body.Name, req.body.Age, req.body.Email, req.body.Salary]
       );
+
     if (data.affectedRows > 0) {
-      return res.json("employees created successfully");
+      return res.json("Employee created successfully");
     } else {
       return res.json("Employee not added");
     }
   } catch (errors) {
-    return res.send(errors);
+    return res.status(400).send(errors);
   }
 });
 

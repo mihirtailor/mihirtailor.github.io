@@ -2,6 +2,51 @@
   <h1>Add Employee</h1>
   <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
     <div class="mb-3 mt-3">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Enter name"
+        name="name"
+        formControlName="name"
+        [ngClass]="{
+          'is-invalid':
+            employeeForm.get('name')?.invalid &&
+            employeeForm.get('name')?.touched
+        }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="employeeForm.get('name')?.errors?.['required'] && employeeForm.get('name')?.touched"
+      >
+        Name is required
+      </div>
+    </div>
+
+    <div class="mb-3 mt-3">
+      <label for="age">Age:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="age"
+        placeholder="Enter age"
+        name="age"
+        formControlName="age"
+        [ngClass]="{
+          'is-invalid':
+            employeeForm.get('age')?.invalid && employeeForm.get('age')?.touched
+        }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="employeeForm.get('age')?.errors?.['required'] && employeeForm.get('age')?.touched"
+      >
+        Age is required
+      </div>
+    </div>
+
+    <div class="mb-3 mt-3">
       <label for="email">Email:</label>
       <input
         type="email"
@@ -76,41 +121,6 @@
     </div>
 
     <div class="mb-3 mt-3">
-      <label for="first_name">First Name:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="first_name"
-        placeholder="Enter first name"
-        name="first_name"
-        formControlName="first_name"
-        [ngClass]="{
-          'is-invalid':
-            employeeForm.get('first_name')?.invalid &&
-            employeeForm.get('first_name')?.touched
-        }"
-      />
-      <div
-        class="invalid-feedback"
-        *ngIf="employeeForm.get('first_name')?.errors?.['required'] && employeeForm.get('first_name')?.touched"
-      >
-        First name is required
-      </div>
-    </div>
-
-    <div class="mb-3 mt-3">
-      <label for="last_name">Last Name:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="last_name"
-        placeholder="Enter last name"
-        name="last_name"
-        formControlName="last_name"
-      />
-    </div>
-
-    <div class="mb-3 mt-3">
       <label for="salary">Salary:</label>
       <input
         type="number"
@@ -119,19 +129,18 @@
         placeholder="Enter salary"
         name="salary"
         formControlName="salary"
+        [ngClass]="{
+          'is-invalid':
+            employeeForm.get('salary')?.invalid &&
+            employeeForm.get('salary')?.touched
+        }"
       />
-    </div>
-
-    <div class="mb-3">
-      <label for="department">Department:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="department"
-        placeholder="Enter department"
-        name="department"
-        formControlName="department"
-      />
+      <div
+        class="invalid-feedback"
+        *ngIf="employeeForm.get('salary')?.errors?.['required'] && employeeForm.get('salary')?.touched"
+      >
+        Salary is required
+      </div>
     </div>
 
     <button

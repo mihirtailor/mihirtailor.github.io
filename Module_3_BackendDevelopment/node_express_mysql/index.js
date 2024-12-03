@@ -3,8 +3,16 @@ const cors = require("cors");
 const app = express();
 const connection = require("./connection");
 const port = 3006;
+const corsOptions = {
+  origin: ["http://localhost:4200"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cors());
 
 // middleware
 app.use((req, res, next) => {
@@ -58,20 +66,27 @@ app.get("/employees/:id", async (req, res) => {
 });
 
 // delete employee by id
-app.delete("/employees/delete/:id", async (req, res) => {
+app.delete("/employees/:id", async (req, res) => {
   try {
-    const [data, fields] = await connection
+    const [result] = await connection
       .promise()
-      .query("delete from bootcamp_database.employees where ID = ?", [
+      .query("DELETE FROM bootcamp_database.employees WHERE ID = ?", [
         req.params.id,
       ]);
-    if (data.affectedRows > 0) {
-      return res.send("Employee deleted");
-    } else {
-      return res.send("Employee not found");
-    }
-  } catch (errors) {
-    return res.send(errors);
+
+    return res.status(200).json({
+      success: true,
+      data: result,
+      message:
+        result.affectedRows > 0
+          ? "Employee deleted successfully"
+          : "Employee not found",
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
   }
 });
 
@@ -130,16 +145,16 @@ app.post("/departments/add", async (req, res) => {
 //app.patch();
 
 // put -
-app.put("/employees/update/:id", async (req, res) => {
+app.put("/employees/:id", async (req, res) => {
   const employee_id = req.params.id;
-  const { first_name } = req.body;
+  const { Name, Age, Email, Salary } = req.body;
 
   try {
     const [data] = await connection.promise().query(
-      `update bootcamp_database.employees 
-       set first_name = ? 
-       where employee_id = ?`,
-      [first_name, employee_id]
+      `UPDATE bootcamp_database.employees
+       SET Name = ?, Age = ?, Email = ?, Salary = ?
+       WHERE employee_id = ?`,
+      [Name, Age, Email, Salary, employee_id]
     );
     res.json(data);
   } catch (errors) {

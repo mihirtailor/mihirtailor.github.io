@@ -21,4 +21,14 @@ export class EmployeeService {
   addEmployee(employee: Employee) {
     return this.http.post('http://localhost:3006/employees/', employee);
   }
+
+  updateEmployee(id: number) {
+    const url = `http://localhost:3006/employees/${id}`;
+    return this.http.put<Employee>(url, id);
+  }
+
+  deleteEmployee(id: number) {
+    const url = `http://localhost:3006/employees/${id}`;
+    return this.http.delete<Employee>(url);
+  }
 }

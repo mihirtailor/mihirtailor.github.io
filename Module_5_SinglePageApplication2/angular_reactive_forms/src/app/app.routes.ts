@@ -10,6 +10,10 @@ export const routes: Routes = [
     component: ReactiveformComponent,
   },
   {
+    path: 'add_employee/:id',
+    component: ReactiveformComponent,
+  },
+  {
     path: 'employees',
     component: EmployeesComponent,
   },

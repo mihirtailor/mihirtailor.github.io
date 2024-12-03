@@ -13,6 +13,7 @@
           <th scope="col">Age</th>
           <th scope="col">Email</th>
           <th scope="col">Salary</th>
+          <th scope="col">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +28,18 @@
           <td>{{ employee.Age }}</td>
           <td>{{ employee.Email }}</td>
           <td>{{ employee.Salary | currency }}</td>
+          <td>
+            <button
+              class="btn btn-warning me-2"
+              [routerLink]="['/add_employee', employee.ID]"
+            >
+              Edit
+            </button>
+
+            <button class="btn btn-danger" (click)="deleteEmployee(employee)">
+              Delete
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

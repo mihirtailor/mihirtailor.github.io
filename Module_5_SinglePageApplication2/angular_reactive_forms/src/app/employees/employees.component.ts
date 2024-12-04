@@ -4,7 +4,6 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
 import { Employee } from '../employee';
 import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employees',
@@ -23,9 +22,7 @@ export class EmployeesComponent {
     .pipe(map((response) => response as Employee[]));
 
   constructor() {
-    this.employeeService.getEmployees().subscribe((val) => {
-      this.employees = val;
-    });
+    this.loadEmployees();
   }
 
   editEmployee(emp: Employee) {
@@ -37,12 +34,9 @@ export class EmployeesComponent {
       Salary: emp.Salary,
     };
 
-    this.employeeService.updateEmployee(emp.ID).subscribe({
-      next: (response) => {
-        console.log('Employee updated successfully', response);
-        this.employees$ = this.employeeService
-          .getEmployees()
-          .pipe(map((response) => response as Employee[]));
+    this.employeeService.updateEmployee(emp.ID, employeeToUpdate).subscribe({
+      next: () => {
+        this.loadEmployees(); // Refresh the list after update
       },
       error: (error) => {
         console.log('Error updating employee', error);
@@ -52,12 +46,8 @@ export class EmployeesComponent {
 
   deleteEmployee(employee: Employee) {
     this.employeeService.deleteEmployee(employee.ID).subscribe({
-      next: (response) => {
-        // Remove the deleted employee from the local array
-        this.employees = this.employees.filter(
-          (emp: Employee) => emp.ID !== employee.ID
-        );
-        // Optionally show a success message
+      next: () => {
+        this.loadEmployees(); // Refresh the list after delete
         this.details = 'Employee deleted successfully';
       },
       error: (error) => {
@@ -66,19 +56,17 @@ export class EmployeesComponent {
     });
   }
 
-  private loadEmployees(): Observable<Employee[]> {
-    return this.employeeService
-      .getEmployees()
-      .pipe(map((response) => response as Employee[]));
+  private loadEmployees(): void {
+    this.employeeService.getEmployees().subscribe((data) => {
+      this.employees = data;
+    });
   }
 
-  private refreshEmployees(): void {
-    this.employees$ = this.loadEmployees();
+  trackByEmployeeId(index: number, employee: Employee): number {
+    return employee.ID;
   }
 
-  // ngOnInit(): void {
-  //   this.emp_data.getEmployees().subscribe((val) => {
-  //     this.employees = val;
-  //   });
-  // }
+  ngOnInit() {
+    this.loadEmployees();
+  }
 }

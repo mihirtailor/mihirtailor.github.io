@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>Add Employee</h1>
-  <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()">
+  <h2>{{ isEditMode ? "Edit Employee" : "Add New Employee" }}</h2>
+  <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
     <div class="mb-3 mt-3">
       <label for="name">Name:</label>
       <input
@@ -145,10 +145,10 @@
 
     <button
       type="submit"
+      [disabled]="!employeeForm.valid"
       class="btn btn-primary"
-      [disabled]="employeeForm.invalid"
     >
-      Submit
+      {{ isEditMode ? "Update" : "Add" }} Employee
     </button>
   </form>
 </div>

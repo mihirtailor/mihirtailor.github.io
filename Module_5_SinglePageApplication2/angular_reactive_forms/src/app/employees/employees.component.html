@@ -17,7 +17,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let employee of employees">
+        <tr *ngFor="let employee of employees; trackBy: trackByEmployeeId">
           <td>
             <a class="btn btn-link" [routerLink]="['/employees', employee.ID]">
               View Details

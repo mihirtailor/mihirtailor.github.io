@@ -1,34 +1,33 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Employee } from '../employee';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EmployeeService {
+  private apiUrl = 'http://localhost:3006/employees';
+
   constructor(private http: HttpClient) {}
 
-  getEmployees() {
-    return this.http.get('http://localhost:3006/employees/');
+  getEmployees(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(this.apiUrl);
   }
 
-  // implement a function called get employee by id and return the employee
-  getEmployeeById(id: number) {
-    return this.http.get<Employee[]>(`http://localhost:3006/employees/${id}`);
+  getEmployeeById(id: number): Observable<Employee[]> {
+    return this.http.get<Employee[]>(`${this.apiUrl}/${id}`);
   }
 
-  // implement a function called add employee and return the employee
-  addEmployee(employee: Employee) {
-    return this.http.post('http://localhost:3006/employees/', employee);
+  addEmployee(employee: Employee): Observable<any> {
+    return this.http.post(this.apiUrl, employee);
   }
 
-  updateEmployee(id: number) {
-    const url = `http://localhost:3006/employees/${id}`;
-    return this.http.put<Employee>(url, id);
+  updateEmployee(id: number, employee: Employee): Observable<any> {
+    return this.http.put(`${this.apiUrl}/${id}`, employee);
   }
 
-  deleteEmployee(id: number) {
-    const url = `http://localhost:3006/employees/${id}`;
-    return this.http.delete<Employee>(url);
+  deleteEmployee(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

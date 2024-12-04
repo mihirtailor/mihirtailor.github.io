@@ -151,14 +151,19 @@ app.put("/employees/:id", async (req, res) => {
 
   try {
     const [data] = await connection.promise().query(
-      `UPDATE bootcamp_database.employees
-       SET Name = ?, Age = ?, Email = ?, Salary = ?
-       WHERE employee_id = ?`,
+      `UPDATE bootcamp_database.employees 
+       SET Name = ?, Age = ?, Email = ?, Salary = ? 
+       WHERE ID = ?`, // Changed from employee_id to ID
       [Name, Age, Email, Salary, employee_id]
     );
-    res.json(data);
+
+    if (data.affectedRows > 0) {
+      res.json({ message: "Employee updated successfully" });
+    } else {
+      res.status(404).json({ message: "Employee not found" });
+    }
   } catch (errors) {
-    res.json(errors);
+    res.status(500).json(errors);
   }
 });
 

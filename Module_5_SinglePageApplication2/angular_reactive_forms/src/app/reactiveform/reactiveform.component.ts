@@ -10,6 +10,7 @@ import { weakPasswordValidator } from '../custom.pass.validations';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from '../services/employee.service';
 import { Employee } from '../employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reactiveform',
@@ -21,7 +22,9 @@ import { Employee } from '../employee';
 export class ReactiveformComponent {
   route = inject(ActivatedRoute);
   employeeService = inject(EmployeeService);
-  employee: Employee | undefined;
+  router = inject(Router);
+  isEditMode = false;
+  employeeId: number | null = null;
 
   employeeForm = new FormGroup({
     name: new FormControl('', [Validators.required]),
@@ -34,27 +37,65 @@ export class ReactiveformComponent {
     salary: new FormControl('', [Validators.required]),
   });
 
-  addEmployee() {
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      if (params['id']) {
+        this.isEditMode = true;
+        this.employeeId = Number(params['id']);
+        this.loadEmployeeData(this.employeeId);
+      }
+    });
+  }
+
+  loadEmployeeData(id: number) {
+    this.employeeService.getEmployeeById(id).subscribe({
+      next: (response: any) => {
+        const employee = response[0];
+        this.employeeForm.patchValue({
+          name: employee.Name,
+          age: employee.Age.toString(),
+          email: employee.Email,
+          salary: employee.Salary.toString(),
+        });
+      },
+      error: (error) => {
+        console.error('Error loading employee data:', error);
+      },
+    });
+  }
+
+  saveEmployee() {
     if (this.employeeForm.valid) {
       const formValue = this.employeeForm.value;
-
       const employee: Employee = {
-        ID: 0,
+        ID: this.isEditMode ? this.employeeId! : 0,
         Name: formValue.name || '',
         Age: Number(formValue.age) || 0,
         Email: formValue.email || '',
         Salary: Number(formValue.salary) || 0,
       };
 
-      this.employeeService.addEmployee(employee).subscribe({
-        next: (response) => {
-          console.log('Employee added successfully', response);
-          this.employeeForm.reset();
-        },
-        error: (error) => {
-          console.log('Error adding employee', error);
-        },
-      });
+      if (this.isEditMode) {
+        this.employeeService.updateEmployee(employee.ID, employee).subscribe({
+          next: () => {
+            this.employeeService.getEmployees().subscribe(); // Refresh the data
+            this.router.navigate(['/employees']);
+          },
+          error: (error) => {
+            console.error('Error updating employee:', error);
+          },
+        });
+      } else {
+        this.employeeService.addEmployee(employee).subscribe({
+          next: () => {
+            this.employeeService.getEmployees().subscribe(); // Refresh the data
+            this.router.navigate(['/employees']);
+          },
+          error: (error) => {
+            console.error('Error adding employee:', error);
+          },
+        });
+      }
     }
   }
 }

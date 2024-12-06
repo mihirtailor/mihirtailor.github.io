@@ -29,7 +29,6 @@ import {
   styleUrls: ['./button.page.scss'],
   standalone: true,
   imports: [
-    IonLabel,
     IonItem,
     IonIcon,
     IonButton,

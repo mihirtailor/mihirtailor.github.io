@@ -1,35 +1,29 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { addIcons } from 'ionicons';
-import {
-  heart,
-  star,
-  home,
-  person,
-  radio,
-  storefront,
-  wifi,
-  batteryCharging,
-} from 'ionicons/icons';
 import {
   IonContent,
   IonHeader,
   IonTitle,
   IonToolbar,
   IonButton,
-  IonIcon,
   NavController,
+  IonItem,
+  IonList,
+  IonLabel,
+  IonInput,
 } from '@ionic/angular/standalone';
-import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-button',
-  templateUrl: './button.page.html',
-  styleUrls: ['./button.page.scss'],
+  selector: 'app-list',
+  templateUrl: './list.page.html',
+  styleUrls: ['./list.page.scss'],
   standalone: true,
   imports: [
-    IonIcon,
+    IonInput,
+    IonLabel,
+    IonList,
+    IonItem,
     IonButton,
     IonContent,
     IonHeader,
@@ -37,24 +31,12 @@ import { RouterModule } from '@angular/router';
     IonToolbar,
     CommonModule,
     FormsModule,
-    RouterModule,
   ],
 })
-export class ButtonPage implements OnInit {
+export class ListPage implements OnInit {
   navCtrl: NavController = inject(NavController);
 
-  constructor() {
-    addIcons({
-      heart,
-      star,
-      home,
-      person,
-      radio,
-      storefront,
-      wifi,
-      batteryCharging,
-    });
-  }
+  constructor() {}
 
   navigateBack() {
     this.navCtrl.back();

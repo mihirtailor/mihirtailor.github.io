@@ -27,17 +27,8 @@
     Warning
     <ion-icon name="battery-charging"></ion-icon>
   </ion-button>
+  <br />
 
-  <ion-item>
-    <ion-icon name="person"></ion-icon>
-  </ion-item>
-  <ion-item>
-    <ion-icon name="wifi"></ion-icon>
-  </ion-item>
-  <ion-item>
-    <ion-icon name="heart"></ion-icon>
-  </ion-item>
-  <ion-item>
-    <ion-icon name="battery-charging"></ion-icon>
-  </ion-item>
+  <ion-button size="large" [routerLink]="'/home'">Back</ion-button>
+  <ion-button (click)="navigateBack()">Another Back</ion-button>
 </ion-content>

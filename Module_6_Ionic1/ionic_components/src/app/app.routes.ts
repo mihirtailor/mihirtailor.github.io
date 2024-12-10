@@ -27,4 +27,12 @@ export const routes: Routes = [
     path: 'list',
     loadComponent: () => import('./list/list.page').then( m => m.ListPage)
   },
+  {
+    path: 'model',
+    loadComponent: () => import('./model/model.page').then( m => m.ModelPage)
+  },
+  {
+    path: 'alert',
+    loadComponent: () => import('./alert/alert.page').then( m => m.AlertPage)
+  },
 ];

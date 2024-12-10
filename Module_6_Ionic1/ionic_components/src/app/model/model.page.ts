@@ -6,22 +6,16 @@ import {
   IonHeader,
   IonTitle,
   IonToolbar,
-  IonButton,
   NavController,
-  IonItem,
-  IonList,
-  IonInput,
+  IonButton,
 } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.page.html',
-  styleUrls: ['./list.page.scss'],
+  selector: 'app-model',
+  templateUrl: './model.page.html',
+  styleUrls: ['./model.page.scss'],
   standalone: true,
   imports: [
-    IonInput,
-    IonList,
-    IonItem,
     IonButton,
     IonContent,
     IonHeader,
@@ -31,14 +25,13 @@ import {
     FormsModule,
   ],
 })
-export class ListPage implements OnInit {
+export class ModelPage implements OnInit {
   navCtrl: NavController = inject(NavController);
-
   constructor() {}
+
+  ngOnInit() {}
 
   navigateBack() {
     this.navCtrl.back();
   }
-
-  ngOnInit() {}
 }

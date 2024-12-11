@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>toast</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">toast</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button [routerLink]="'/home'" routerDirection="back">Back</ion-button>
+  <ion-button (click)="navigateBack()">Another Back</ion-button>
+  <ion-button id="toast_example">Toast Button</ion-button>
+  <ion-toast
+    trigger="toast_example"
+    message="this toast will disappear after 5 seconds"
+    [duration]="5000"
+  ></ion-toast>
+  <ion-button (click)="setOpen(true)">isOpen Toast Button</ion-button>
+  <ion-toast
+    [isOpen]="isToastOpen"
+    message="this toast will close in 5 seconds"
+    [duration]="5000"
+    (didDismiss)="setOpen(false)"
+  ></ion-toast>
+  <ion-button expand="block" (click)="presentToast('top')"
+    >Present Toast At the Top</ion-button
+  >
+  <ion-button expand="block" (click)="presentToast('middle')"
+    >Present Toast At the Middle</ion-button
+  >
+  <ion-button expand="block" (click)="presentToast('bottom')"
+    >Present Toast At the Bottom</ion-button
+  >
+  <ion-button id="open-toast">Open Toast</ion-button>
+  <ion-toast
+    trigger="open-toast"
+    message="Hello World!"
+    [duration]="3000"
+    [buttons]="toastButtons"
+    (didDismiss)="setRoleMessage($event)"
+  ></ion-toast>
+</ion-content>

@@ -35,6 +35,44 @@ export class AlertPage implements OnInit {
 
   alertsButton = ['Confirm', 'Cancel'];
   isOpenAlertButton = ['Action'];
+  advancedButton = [
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () => {
+        console.log('cancel button is clicked');
+      },
+    },
+    {
+      text: 'OK',
+      role: 'confirm',
+      handler: () => {
+        console.log('ok button is clicked');
+      },
+    },
+  ];
+  alertInputs = [
+    {
+      placeholder: 'Name',
+    },
+    {
+      placeholder: 'Nickname (max 8 characters)',
+      attributes: {
+        maxlength: 8,
+      },
+    },
+    {
+      type: 'number',
+      placeholder: 'Age',
+      min: 1,
+      max: 100,
+    },
+    {
+      type: 'textarea',
+      placeholder: 'A little about yourself',
+    },
+  ];
+
   constructor() {}
 
   ngOnInit() {}
@@ -54,5 +92,9 @@ export class AlertPage implements OnInit {
       buttons: ['OK'],
     });
     await alert.present();
+  }
+
+  showResult(event: any) {
+    console.log(event.detail.role);
   }
 }

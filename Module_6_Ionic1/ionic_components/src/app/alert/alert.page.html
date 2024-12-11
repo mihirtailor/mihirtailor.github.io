@@ -32,4 +32,20 @@
   ></ion-alert>
 
   <ion-button (click)="alertControl()">Alert Controller Button</ion-button>
+  <ion-button id="advance_alert">advance alert button</ion-button>
+  <ion-alert
+    trigger="advance_alert"
+    header="Alert!"
+    message="This is an alert!"
+    [buttons]="advancedButton"
+    (didDismiss)="showResult($event)"
+  ></ion-alert>
+
+  <ion-button id="present-alert">Input Alert Button</ion-button>
+  <ion-alert
+    trigger="present-alert"
+    header="Please enter your info"
+    [buttons]="alertsButton"
+    [inputs]="alertInputs"
+  ></ion-alert>
 </ion-content>

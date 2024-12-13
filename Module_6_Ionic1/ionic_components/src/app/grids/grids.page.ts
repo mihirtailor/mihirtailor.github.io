@@ -8,16 +8,20 @@ import {
   IonToolbar,
   NavController,
   IonButton,
-  IonFooter,
+  IonGrid,
+  IonRow,
+  IonCol,
 } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-model',
-  templateUrl: './model.page.html',
-  styleUrls: ['./model.page.scss'],
+  selector: 'app-grids',
+  templateUrl: './grids.page.html',
+  styleUrls: ['./grids.page.scss'],
   standalone: true,
   imports: [
-    IonFooter,
+    IonCol,
+    IonRow,
+    IonGrid,
     IonButton,
     IonContent,
     IonHeader,
@@ -25,10 +29,9 @@ import {
     IonToolbar,
     CommonModule,
     FormsModule,
-    IonFooter,
   ],
 })
-export class ModelPage implements OnInit {
+export class GridsPage implements OnInit {
   navCtrl: NavController = inject(NavController);
   constructor() {}
 

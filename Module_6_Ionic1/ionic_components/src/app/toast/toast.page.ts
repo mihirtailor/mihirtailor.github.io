@@ -73,6 +73,7 @@ export class ToastPage implements OnInit {
     });
     await toast.present();
   }
+
   setRoleMessage(ev: any) {
     const { role } = ev.detail;
     console.log(`Dismissed with role: ${role}`);

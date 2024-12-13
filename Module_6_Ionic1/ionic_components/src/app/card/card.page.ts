@@ -8,16 +8,31 @@ import {
   IonToolbar,
   NavController,
   IonButton,
-  IonFooter,
+  IonCard,
+  IonCardHeader,
+  IonCardContent,
+  IonCardTitle,
+  IonCardSubtitle,
+  IonList,
+  IonItem,
+  IonLabel,
+  IonThumbnail,
 } from '@ionic/angular/standalone';
 
 @Component({
-  selector: 'app-model',
-  templateUrl: './model.page.html',
-  styleUrls: ['./model.page.scss'],
+  selector: 'app-card',
+  templateUrl: './card.page.html',
+  styleUrls: ['./card.page.scss'],
   standalone: true,
   imports: [
-    IonFooter,
+    IonLabel,
+    IonItem,
+    IonList,
+    IonCardSubtitle,
+    IonCardTitle,
+    IonCardContent,
+    IonCardHeader,
+    IonCard,
     IonButton,
     IonContent,
     IonHeader,
@@ -25,10 +40,10 @@ import {
     IonToolbar,
     CommonModule,
     FormsModule,
-    IonFooter,
+    IonThumbnail,
   ],
 })
-export class ModelPage implements OnInit {
+export class CardPage implements OnInit {
   navCtrl: NavController = inject(NavController);
   constructor() {}
 

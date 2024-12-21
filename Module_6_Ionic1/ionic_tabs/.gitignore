@@ -69,22 +69,37 @@ testem.log
 .DS_Store
 Thumbs.db
 
-ios/
-**/ios/*
+# Ignore the entire ios build and cache directories
+ios/DerivedData/
+ios/build/
+
+# Ignore user-specific Xcode files
+ios/**/xcuserdata/
+ios/**/*.xcuserstate
+ios/**/*.xccheckout
+
+# Ignore Pod cache but keep Podfile and Podfile.lock
+ios/Pods/
+ios/**/Podfile.lock
+!ios/**/Podfile
+
+# Ignore macOS system files
 .DS_Store
+
+# Ignore Xcode intermediate files
 *.pbxuser
-!default.pbxuser
 *.mode1v3
-!default.mode1v3
 *.mode2v3
-!default.mode2v3
 *.perspectivev3
-!default.perspectivev3
-xcuserdata/
-*.xccheckout
 *.moved-aside
-DerivedData/
 *.hmap
+
+# Ignore generated IPA files
 *.ipa
-*.xcuserstate
+
+# Allow default files to be tracked
+!default.pbxuser
+!default.mode1v3
+!default.perspectivev3
+
 

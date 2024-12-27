@@ -14,6 +14,7 @@ import {
   home,
   camera,
   images,
+  call,
 } from 'ionicons/icons';
 
 @Component({
@@ -27,6 +28,6 @@ export class TabsPage {
   public environmentInjector = inject(EnvironmentInjector);
 
   constructor() {
-    addIcons({ triangle, ellipse, square, home, camera, images });
+    addIcons({ triangle, ellipse, square, home, camera, images, call });
   }
 }

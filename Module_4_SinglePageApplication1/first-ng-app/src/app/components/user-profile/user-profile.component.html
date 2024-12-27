@@ -1,0 +1,46 @@
+<h1>This is user profile</h1>
+<h4>
+  Name: {{ name() }} <br />Status: {{ status }} <br />Salary:
+  {{ salary() }}
+</h4>
+<button [disabled]="isBtnDisabled">Click Me</button>
+
+<h1>Input Value - {{ inputVal }}</h1>
+<input type="text" [value]="inputVal" (input)="onChange($event)" />
+<input type="text" [(ngModel)]="inputVal" />
+
+<h1>Angular17 and up</h1>
+<div>
+  @for(user of users; track user.name){ @if(user.salary > 10000){
+  <h4>
+    Name - {{ user.name }} Status -
+    {{ user.isSingle ? "Single" : "Married" }} Salary - {{ user.salary }}
+  </h4>
+  } @else {
+  <h4>
+    Name - {{ user.name }} Status -
+    {{ user.isSingle ? "Single" : "Married" }} Salary - Hidden
+  </h4>
+  } }
+</div>
+<hr />
+<h1>Angular with ngFor</h1>
+<div *ngFor="let user of users">
+  <h4 *ngIf="user.salary > 10000; else elseBlock">
+    Name - {{ user.name }} Status -
+    {{ user.isSingle ? "Single" : "Married" }} Salary - {{ user.salary }}
+  </h4>
+  <ng-template #elseBlock>
+    <h4>
+      Name - {{ user.name }} Status -
+      {{ user.isSingle ? "Single" : "Married" }} Salary - Hidden
+    </h4>
+  </ng-template>
+</div>
+
+<h1 #myheading>
+  Name - {{ name() | uppercase }} Stauts -
+  {{ isSingle ? "Single" : "Married" }} Salary-{{ salary() | currency : "INR" }}
+</h1>
+<h2>{{ phoneNumber | countryCode }}</h2>
+<button (click)="sendData()">Send data</button>

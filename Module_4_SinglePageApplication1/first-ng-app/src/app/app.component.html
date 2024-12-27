@@ -1,0 +1,16 @@
+<h1>Hello from html file</h1>
+
+<app-user-profile
+  *ngFor="let u of users"
+  [userName]="u.name"
+  [isSingle]="u.isSingle"
+  [salary]="u.salary"
+  (myEvent)="receivedData($event)"
+>
+</app-user-profile>
+<button (click)="clear()">Clear</button>
+<app-joke></app-joke>
+
+<app-a></app-a>
+<app-b1></app-b1>
+<router-outlet />

@@ -1,0 +1,15 @@
+<p style="height: 100vh; border: 1px solid black; margin: 10px">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat veritatis
+  nemo earum eaque. Repellendus voluptatem aliquam voluptate laboriosam. Ducimus
+  libero praesentium tempore odit ut asperiores quia nisi veritatis soluta.
+  Modi.
+</p>
+@defer (on interaction){
+<app-heavy></app-heavy>
+} @placeholder {
+<h3>This is placeholder</h3>
+} @loading(after 100ms; minimum 1s) {
+<h3>Content is loading</h3>
+}@error {
+<h3>error while loading heavy component</h3>
+}

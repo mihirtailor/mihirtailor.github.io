@@ -1,0 +1,60 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-body p-4">
+          <h3 class="text-center mb-4 fw-bold">Create Code Snippet</h3>
+
+          <form [formGroup]="binForm">
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Title"
+                [formControl]="title"
+              />
+              <div
+                class="text-danger small mt-1"
+                [hidden]="title.valid || title.untouched"
+              >
+                Title is required
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <textarea
+                class="form-control form-control-lg"
+                rows="6"
+                placeholder="Enter your code snippet here"
+                [formControl]="code"
+              ></textarea>
+              <div
+                class="text-danger small mt-1"
+                [hidden]="code.valid || code.untouched"
+              >
+                Code is required
+              </div>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button
+                class="btn btn-primary btn-lg flex-grow-1"
+                [disabled]="binForm.invalid"
+                (click)="save()"
+              >
+                Create Snippet
+              </button>
+              <button
+                type="reset"
+                class="btn btn-secondary btn-lg"
+                (click)="resetForm()"
+              >
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

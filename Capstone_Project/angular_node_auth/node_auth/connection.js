@@ -1,11 +1,13 @@
 const mysql = require("mysql2");
 
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root2024",
-  database: "angular_node_auth",
-});
+const connection = mysql
+  .createConnection({
+    host: "localhost",
+    user: "root",
+    password: "root2024",
+    database: "angular_node_auth",
+  })
+  .promise();
 
 connection.connect((error) => {
   if (error) {
@@ -15,4 +17,4 @@ connection.connect((error) => {
   }
 });
 
-module.exports = connection;
+module.exports = { connection };

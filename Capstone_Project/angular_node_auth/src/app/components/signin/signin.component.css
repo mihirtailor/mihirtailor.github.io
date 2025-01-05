@@ -1,0 +1,13 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+.btn.rounded-circle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.rounded-circle i {
+  font-size: 1rem;
+}

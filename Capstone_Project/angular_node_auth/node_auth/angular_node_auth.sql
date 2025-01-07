@@ -20,3 +20,5 @@ MODIFY password VARCHAR(255) NOT NULL;
 
 
 SELECT * FROM angular_node_auth.users;
+
+SELECT password FROM angular_node_auth.users WHERE email='steve@gmail.com';

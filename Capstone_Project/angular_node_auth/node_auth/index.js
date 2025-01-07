@@ -1,10 +1,12 @@
 const { connection } = require("./connection");
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const port = 3000;
 const bcrypt = require("bcrypt");
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/register/", async (req, res) => {
   const { first_name, last_name, email, password } = req.body;
@@ -57,6 +59,8 @@ app.post("/login/", async (req, res) => {
           data: data,
         });
       } else {
+        console.log(password);
+        console.log(data[0].password);
         return res.json({
           error: true,
           message: "Incorrect password",

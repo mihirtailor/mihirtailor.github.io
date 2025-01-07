@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-signin',
@@ -20,6 +21,8 @@ export class SigninComponent {
   signInForm!: FormGroup;
   loading = false;
   submitted = false;
+
+  dataService: DataService = inject(DataService);
 
   user = {
     email: '',
@@ -36,10 +39,13 @@ export class SigninComponent {
     });
   }
 
-  // Convenience getter for easy access to form fields
-
   onSubmit(data: any) {
-    console.log('Form submitted', data.form);
+    console.log(data);
+    if (data.form.valid) {
+      this.dataService.signIn(data.form.value).subscribe((result) => {
+        console.log(result);
+      });
+    }
   }
 
   socialSignIn(platform: string) {

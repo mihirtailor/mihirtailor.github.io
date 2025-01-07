@@ -6,10 +6,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
   http: HttpClient = inject(HttpClient);
+  url = 'http://localhost:3000';
 
   constructor() {}
 
-  login() {}
+  signIn(data: {}) {
+    return this.http.post(this.url + '/login', data);
+  }
 
-  register() {}
+  signUp(data: {}) {
+    return this.http.post(this.url + '/register', data);
+  }
 }

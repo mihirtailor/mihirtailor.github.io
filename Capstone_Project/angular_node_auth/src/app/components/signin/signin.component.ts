@@ -7,7 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { DataService } from '../../services/data.service';
 
 @Component({
@@ -23,6 +23,7 @@ export class SigninComponent {
   submitted = false;
 
   dataService: DataService = inject(DataService);
+  router: Router = inject(Router);
 
   user = {
     email: '',
@@ -42,8 +43,12 @@ export class SigninComponent {
   onSubmit(data: any) {
     console.log(data);
     if (data.form.valid) {
-      this.dataService.signIn(data.form.value).subscribe((result) => {
+      this.dataService.signIn(data.form.value).subscribe((result: any) => {
         console.log(result);
+        if (result.error == false) {
+          localStorage.setItem('token', result.token);
+          this.router.navigate(['home']);
+        }
       });
     }
   }

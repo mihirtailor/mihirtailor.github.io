@@ -4,9 +4,15 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const verifyUser = require("./verifyToken");
 
 app.use(express.json());
 app.use(cors());
+
+app.get("/", verifyUser, (req, res) => {
+  res.send("Hello World!");
+});
 
 app.post("/register/", async (req, res) => {
   const { first_name, last_name, email, password } = req.body;
@@ -53,10 +59,17 @@ app.post("/login/", async (req, res) => {
         data[0].password
       );
       if (isPasswordCorrect) {
+        // generate token and send it with request
+        const token = await jwt.sign(
+          { user_id: data[0].user_id },
+          "thisismysecretkey",
+          { expiresIn: "1h" }
+        );
         return res.json({
           error: false,
           message: "User logged in successfully",
           data: data,
+          token: token,
         });
       } else {
         console.log(password);

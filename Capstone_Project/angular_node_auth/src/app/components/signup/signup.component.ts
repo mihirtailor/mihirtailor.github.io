@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-signup',
@@ -17,7 +18,18 @@ export class SignupComponent {
     password: '',
   };
 
+  dataService: DataService = inject(DataService);
+  router: Router = inject(Router);
+
   onSubmit(data: any) {
-    console.log('Form submitted', data.form);
+    console.log(data);
+    if (data.form.valid) {
+      this.dataService.signUp(data.form.value).subscribe((result: any) => {
+        console.log(result);
+        if (result.error == false) {
+          this.router.navigate(['signin']);
+        }
+      });
+    }
   }
 }

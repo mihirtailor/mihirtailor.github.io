@@ -15,12 +15,19 @@ app.get("/", verifyUser, (req, res) => {
 });
 
 app.post("/register/", async (req, res) => {
-  const { first_name, last_name, email, password } = req.body;
+  const { first_name, last_name, email, password, confirm_password } = req.body;
 
-  if (!first_name || !password || !email) {
+  if (!first_name || !password || !email || !confirm_password) {
     return res.json({
       error: true,
       message: "Please provide all the required values",
+    });
+  }
+
+  if (password !== confirm_password) {
+    return res.json({
+      error: true,
+      message: "Password and confirm password does not match",
     });
   }
 

@@ -22,7 +22,6 @@ export class DataService {
 
   isAuthenticated() {
     const token = localStorage.getItem('token');
-    console.log(token);
     return !this.jwt.isTokenExpired(token);
   }
 }

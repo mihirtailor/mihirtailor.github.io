@@ -41,10 +41,8 @@ export class SigninComponent {
   }
 
   onSubmit(data: any) {
-    console.log(data);
     if (data.form.valid) {
       this.dataService.signIn(data.form.value).subscribe((result: any) => {
-        console.log(result);
         if (result.error == false) {
           localStorage.setItem('token', result.token);
           this.router.navigate(['home']);

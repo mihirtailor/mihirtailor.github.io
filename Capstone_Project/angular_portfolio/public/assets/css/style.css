@@ -749,6 +749,19 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 }
 
 /*--contct button--*/
+.contact-btn {
+    width: 100%;
+    display: block;
+    padding: 12px 24px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .single-contact-btn {
+    width: 100%;
+    display: block;
+  }
+  
 
 /* contact-adress */
 .contact-add-head h3 {

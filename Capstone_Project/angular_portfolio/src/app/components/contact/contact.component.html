@@ -10,6 +10,9 @@
           <div class="single-contact-box">
             <div class="contact-form">
               <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+                <div class="alert alert-success" *ngIf="showSuccess">
+                  Message sent successfully!
+                </div>
                 <div class="row">
                   <div class="col-sm-6 col-xs-12">
                     <div class="form-group">

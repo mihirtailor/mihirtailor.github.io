@@ -1,3 +1,23 @@
-<button class="btn btn-danger" (click)="logout()">
-  <i class="fas fa-sign-out-alt"></i> Logout
-</button>
+<section class="home-container">
+  <div class="search-bar">
+    <form class="search-form">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Filter by city" />
+        <button class="btn btn-primary search-btn">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+      <button class="btn btn-danger logout-btn" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </form>
+  </div>
+</section>
+
+<section class="results">
+  <app-housing-location
+    *ngFor="let location of housingLocationList"
+    [housingLocation]="location"
+  >
+  </app-housing-location>
+</section>

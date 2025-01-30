@@ -1,0 +1,14 @@
+<form
+  #uploadImageForm="ngForm"
+  enctype="multipart/form-data"
+  ngSubmit="uploadImage(uploadImage)"
+>
+  <input type="file" accept="image/*" (change)="selectFile($event)" />
+  <button (click)="uploadImage()">Upload</button>
+
+  <div>
+    <img [src]="preview" alt="" width="400" height="400" />
+  </div>
+</form>
+
+<router-outlet />
